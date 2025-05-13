@@ -4,6 +4,7 @@ import SwiftUI
 struct LebenslaufApp: App {
     var body: some Scene {
         WindowGroup {
+            CvView()
         }
     }
 }
