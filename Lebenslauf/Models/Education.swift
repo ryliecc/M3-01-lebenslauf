@@ -8,6 +8,7 @@
 import Foundation
 
 struct Education {
+    let id = UUID()
     let startYear: Int
     let endYear: Int?
     let title: String

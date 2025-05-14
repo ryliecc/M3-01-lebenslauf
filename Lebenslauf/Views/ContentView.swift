@@ -86,87 +86,9 @@ struct ContentView: View {
                         .font(.custom("DINCondensed-Bold", size: 18))
                         .padding(.leading, 6)
                 }
-                HStack(alignment: .top) {
-                    Image(systemName: "circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 5)
-                        .padding(.top, 3)
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Text(
-                                String(educationArray[0].startYear)
-                                    + (educationArray[0].endYear != nil
-                                        ? " - \(educationArray[0].endYear!)"
-                                        : "")
-                            )
-                            .font(
-                                .custom("AvenirNext-UltraLightItalic", size: 12)
-                            )
-                            Text(educationArray[0].title)
-                                .font(.custom("AvenirNext-Medium", size: 12))
-                            Text("- \(educationArray[0].school)")
-                                .font(.custom("Avenir Next", size: 12))
-                        }
-                        Text(educationArray[0].description)
-                            .font(.custom("Avenir Next", size: 12))
-                    }
+                ForEach(educationArray, id: \.id) { education in
+                    EducationView(education: education)
                 }
-                .frame(width: 338, alignment: .leading)
-                HStack(alignment: .top) {
-                    Image(systemName: "circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 5)
-                        .padding(.top, 3)
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Text(
-                                String(educationArray[1].startYear)
-                                    + (educationArray[1].endYear != nil
-                                        ? " - \(educationArray[1].endYear!)"
-                                        : "")
-                            )
-                            .font(
-                                .custom("AvenirNext-UltraLightItalic", size: 12)
-                            )
-                            Text(educationArray[1].title)
-                                .font(.custom("AvenirNext-Medium", size: 12))
-                            Text("- \(educationArray[1].school)")
-                                .font(.custom("Avenir Next", size: 12))
-                        }
-                        Text(educationArray[1].description)
-                            .font(.custom("Avenir Next", size: 12))
-                    }
-                }
-                .frame(width: 338, alignment: .leading)
-                HStack(alignment: .top) {
-                    Image(systemName: "circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 5)
-                        .padding(.top, 3)
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Text(
-                                String(educationArray[2].startYear)
-                                    + (educationArray[2].endYear != nil
-                                        ? " - \(educationArray[2].endYear!)"
-                                        : "")
-                            )
-                            .font(
-                                .custom("AvenirNext-UltraLightItalic", size: 12)
-                            )
-                            Text(educationArray[2].title)
-                                .font(.custom("AvenirNext-Medium", size: 12))
-                            Text("- \(educationArray[2].school)")
-                                .font(.custom("Avenir Next", size: 12))
-                        }
-                        Text(educationArray[2].description)
-                            .font(.custom("Avenir Next", size: 12))
-                    }
-                }
-                .frame(width: 338, alignment: .leading)
                 HStack(alignment: .top) {
                     Image(systemName: "circle.fill")
                         .resizable()
