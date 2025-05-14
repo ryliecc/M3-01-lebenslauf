@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
 
-    let experienceArray: [Experience] = [
+    let experiences: [Experience] = [
         Experience(
             title: "AuPair",
             place: "Galway County, Ireland",
@@ -30,7 +30,7 @@ struct ContentView: View {
         After completing my secondary education with an average of 1.9, I spent time exploring different fields before discovering my passion for tech.
         """
 
-    let educationArray: [Education] = [
+    let educations: [Education] = [
         Education(
             startYear: 2023,
             endYear: nil,
@@ -58,22 +58,25 @@ struct ContentView: View {
     ]
     let additionalEducationText: String =
         "Additionally I continuously expand my knowledge through self-study, online courses, and personal projects, focusing on modern web and app development technologies."
+    
     let skills: [Skill] = [Skill(category: "Languages", allSkills: "JavaScript, TypeScript, HTML, CSS, Java, Swift, Kotlin"), Skill(category: "Frameworks", allSkills: "React, Next.js, Node.js, SwiftUI"), Skill(category: "Design", allSkills: "Figma, Material Design, UX/UI, ProCreate"), Skill(category: "Tools", allSkills: "Git, Postman, Docker, MongoDB")]
+    
+    let languages: [Language] = [Language(language: "English", level: "Level C2", additionalInfo: "completed a Business English Course in 2012/13"), Language(language: "German", level: "Native Speaker"), Language(language: "Japanese", level: "JLPT N5", additionalInfo: "currently working towards further proficiency")]
 
     var body: some View {
         ScrollView {
             VStack {
                 ZStack(alignment: .leading) {
                     Color(red: 234 / 255, green: 184 / 255, blue: 42 / 255)
-                        .frame(width: 338, height: 27)
+                        .frame(width: 338, height: 32)
 
                     Text("HOW IT ALL STARTED")
-                        .font(.custom("DINCondensed-Bold", size: 18))
+                        .font(.custom("DINCondensed-Bold", size: 24))
                         .padding(.leading, 6)
                 }
                 Text(experienceIntro)
-                    .font(.custom("Avenir Next", size: 12))
-                ForEach(experienceArray, id: \.id) { experience in
+                    .font(.custom("Avenir Next", size: 16))
+                ForEach(experiences, id: \.id) { experience in
                     ExperienceView(experience: experience)
                 }
             }
@@ -81,13 +84,13 @@ struct ContentView: View {
             VStack {
                 ZStack(alignment: .leading) {
                     Color(red: 234 / 255, green: 184 / 255, blue: 42 / 255)
-                        .frame(width: 338, height: 27)
+                        .frame(width: 338, height: 32)
 
                     Text("EDUCATION")
-                        .font(.custom("DINCondensed-Bold", size: 18))
+                        .font(.custom("DINCondensed-Bold", size: 24))
                         .padding(.leading, 6)
                 }
-                ForEach(educationArray, id: \.id) { education in
+                ForEach(educations, id: \.id) { education in
                     EducationView(education: education)
                 }
                 HStack(alignment: .top) {
@@ -95,9 +98,9 @@ struct ContentView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 5)
-                        .padding(.top, 3)
+                        .padding(.top, 7)
                     Text(additionalEducationText)
-                        .font(.custom("Avenir Next", size: 12))
+                        .font(.custom("Avenir Next", size: 16))
                 }
                 .frame(width: 338, alignment: .leading)
                 Spacer()
@@ -106,14 +109,28 @@ struct ContentView: View {
             VStack {
                 ZStack(alignment: .leading) {
                     Color(red: 234 / 255, green: 184 / 255, blue: 42 / 255)
-                        .frame(width: 338, height: 27)
+                        .frame(width: 338, height: 32)
 
                     Text("SKILLS & TECH STACK")
-                        .font(.custom("DINCondensed-Bold", size: 18))
+                        .font(.custom("DINCondensed-Bold", size: 24))
                         .padding(.leading, 6)
                 }
                 ForEach(skills, id: \.id) { skill in
                     SkillView(skill: skill)
+                }
+            }
+            .frame(width: 338)
+            VStack {
+                ZStack(alignment: .leading) {
+                    Color(red: 234 / 255, green: 184 / 255, blue: 42 / 255)
+                        .frame(width: 338, height: 32)
+
+                    Text("LANGUAGES")
+                        .font(.custom("DINCondensed-Bold", size: 24))
+                        .padding(.leading, 6)
+                }
+                ForEach(languages, id: \.id) { language in
+                    LanguageView(language: language)
                 }
             }
             .frame(width: 338)

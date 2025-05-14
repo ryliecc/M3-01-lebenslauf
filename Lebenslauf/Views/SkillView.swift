@@ -15,13 +15,13 @@ struct SkillView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 5)
-                .padding(.top, 5)
+                .padding(.top, 7)
             VStack(alignment: .leading) {
                 Text(skill.category + ":")
-                    .font(.custom("AvenirNext-Medium", size: 12))
+                    .font(.custom("AvenirNext-Medium", size: 16))
                     .underline()
                 Text(skill.allSkills)
-                    .font(.custom("Avenir Next", size: 12))
+                    .font(.custom("Avenir Next", size: 16))
             }
         }
         .frame(width: 338, alignment: .leading)
