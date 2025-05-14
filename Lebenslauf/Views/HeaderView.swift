@@ -8,19 +8,21 @@
 import SwiftUI
 
 struct HeaderView: View {
+    let header: Header = Header(userFirstName: "Rylie", jobTitle: "Developer", imageName: "Home_Page")
+    
     var body: some View {
         VStack {
-            Text("Hi, my name is Rylie.")
+            Text("Hi, my name is \(header.userFirstName).")
                 .font(.custom("AvenirNext-Medium", size: 22))
                 .offset(x: -52)
             ZStack {
-                Image("Home_Page")
+                Image(header.imageName)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 264.12, height: 286)
                     .offset(x: -90, y: 20)
                     .zIndex(1)
-                Text("DEVELOPER")
+                Text(header.jobTitle.uppercased())
                     .font(.custom("DINCondensed-Bold", size: 88))
                     .padding(.top, -150)
                     .zIndex(0)
