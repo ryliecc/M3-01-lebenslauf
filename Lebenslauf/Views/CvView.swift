@@ -30,6 +30,9 @@ struct CvView: View {
         I spent time exploring different fields before discovering
         my passion for tech.
         """
+    
+    let educationArray: [Education] = [Education(startYear: 2023, endYear: nil, title: "Web Development Bootcamp", school: "neuefische", description: "Frontend Web Developing with HTML, CSS, JS, React and Next.js"), Education(startYear: 2023, endYear: nil, title: "Full Stack Development Bootcamp", school: "neuefische", description: "Backend Developing with Java, MongoDB, Docker and Postman, Frontend Developing with TypeScript and React"), Education(startYear: 2025, endYear: 2026, title: "App Development Course", school: "Syntax Institut", description: "UX/UI Design with Figma, iOS Development with Swift, Android Development with Kotlin")]
+    let additionalEducationText: String = "I continuously expand my knowledge through self-study, online courses, and personal projects, focusing on modern web and app development technologies."
 
     var body: some View {
         HeaderView()
