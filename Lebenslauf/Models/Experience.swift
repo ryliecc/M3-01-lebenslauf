@@ -8,6 +8,7 @@
 import Foundation
 
 struct Experience {
+    let id = UUID()
     let title: String
     let place: String?
     let skillsGained: String

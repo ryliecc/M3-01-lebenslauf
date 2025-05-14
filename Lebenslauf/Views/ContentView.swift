@@ -72,62 +72,9 @@ struct ContentView: View {
                 }
                 Text(experienceIntro)
                     .font(.custom("Avenir Next", size: 12))
-                HStack(alignment: .top) {
-                    Image(systemName: "circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 5)
-                        .padding(.top, 3)
-                    VStack(alignment: .leading) {
-                        Text(
-                            experienceArray[0].title
-                                + (experienceArray[0].place != nil
-                                    ? " in " + experienceArray[0].place! : "")
-                        )
-                        .font(.custom("AvenirNextMedium", size: 12))
-                        Text(experienceArray[0].skillsGained)
-                            .font(.custom("Avenir Next", size: 12))
-                    }
+                ForEach(experienceArray, id: \.id) { experience in
+                    ExperienceView(experience: experience)
                 }
-                .frame(width: 338, alignment: .leading)
-                HStack(alignment: .top) {
-                    Image(systemName: "circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 5)
-                        .padding(.top, 3)
-                    VStack(alignment: .leading) {
-                        Text(
-                            experienceArray[1].title
-                                + (experienceArray[1].place != nil
-                                    ? " in " + experienceArray[1].place! : "")
-                        )
-                        .font(.custom("AvenirNextMedium", size: 12))
-                        Text(experienceArray[1].skillsGained)
-                            .font(.custom("Avenir Next", size: 12))
-                    }
-                }
-                .frame(width: 338, alignment: .leading)
-                HStack(alignment: .top) {
-                    Image(systemName: "circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 5)
-                        .padding(.top, 3)
-                    VStack(alignment: .leading) {
-                        Text(
-                            experienceArray[2].title
-                                + (experienceArray[2].place != nil
-                                    ? " in " + experienceArray[2].place! : "")
-                        )
-                        .font(.custom("AvenirNextMedium", size: 12))
-                        Text(experienceArray[2].skillsGained)
-                            .font(.custom("Avenir Next", size: 12))
-                    }
-                }
-                .frame(width: 338, alignment: .leading)
-
-                Spacer()
             }
             .frame(width: 338)
             VStack {
