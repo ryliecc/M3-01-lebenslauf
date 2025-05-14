@@ -15,7 +15,7 @@ struct ExperienceView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 5)
-                .padding(.top, 3)
+                .padding(.top, 4)
             VStack(alignment: .leading) {
                 Text(
                     experience.title

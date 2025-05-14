@@ -58,6 +58,7 @@ struct ContentView: View {
     ]
     let additionalEducationText: String =
         "Additionally I continuously expand my knowledge through self-study, online courses, and personal projects, focusing on modern web and app development technologies."
+    let skills: [Skill] = [Skill(category: "Languages", allSkills: "JavaScript, TypeScript, HTML, CSS, Java, Swift, Kotlin"), Skill(category: "Frameworks", allSkills: "React, Next.js, Node.js, SwiftUI"), Skill(category: "Design", allSkills: "Figma, Material Design, UX/UI, ProCreate"), Skill(category: "Tools", allSkills: "Git, Postman, Docker, MongoDB")]
 
     var body: some View {
         ScrollView {
@@ -100,6 +101,20 @@ struct ContentView: View {
                 }
                 .frame(width: 338, alignment: .leading)
                 Spacer()
+            }
+            .frame(width: 338)
+            VStack {
+                ZStack(alignment: .leading) {
+                    Color(red: 234 / 255, green: 184 / 255, blue: 42 / 255)
+                        .frame(width: 338, height: 27)
+
+                    Text("SKILLS & TECH STACK")
+                        .font(.custom("DINCondensed-Bold", size: 18))
+                        .padding(.leading, 6)
+                }
+                ForEach(skills, id: \.id) { skill in
+                    SkillView(skill: skill)
+                }
             }
             .frame(width: 338)
         }
