@@ -58,17 +58,41 @@ struct ContentView: View {
     ]
     let additionalEducationText: String =
         "Additionally I continuously expand my knowledge through self-study, online courses, and personal projects, focusing on modern web and app development technologies."
-    
-    let skills: [Skill] = [Skill(category: "Languages", allSkills: "JavaScript, TypeScript, HTML, CSS, Java, Swift, Kotlin"), Skill(category: "Frameworks", allSkills: "React, Next.js, Node.js, SwiftUI"), Skill(category: "Design", allSkills: "Figma, Material Design, UX/UI, ProCreate"), Skill(category: "Tools", allSkills: "Git, Postman, Docker, MongoDB")]
-    
-    let languages: [Language] = [Language(language: "English", level: "Level C2", additionalInfo: "completed a Business English Course in 2012/13"), Language(language: "German", level: "Native Speaker"), Language(language: "Japanese", level: "JLPT N5", additionalInfo: "currently working towards further proficiency")]
+
+    let skills: [Skill] = [
+        Skill(
+            category: "Languages",
+            allSkills: "JavaScript, TypeScript, HTML, CSS, Java, Swift, Kotlin"
+        ),
+        Skill(
+            category: "Frameworks",
+            allSkills: "React, Next.js, Node.js, SwiftUI"
+        ),
+        Skill(
+            category: "Design",
+            allSkills: "Figma, Material Design, UX/UI, ProCreate"
+        ), Skill(category: "Tools", allSkills: "Git, Postman, Docker, MongoDB"),
+    ]
+
+    let languages: [Language] = [
+        Language(
+            language: "English",
+            level: "Level C2",
+            additionalInfo: "completed a Business English Course in 2012/13"
+        ), Language(language: "German", level: "Native Speaker"),
+        Language(
+            language: "Japanese",
+            level: "JLPT N5",
+            additionalInfo: "currently working towards further proficiency"
+        ),
+    ]
 
     var body: some View {
         ScrollView {
             VStack {
                 ZStack(alignment: .leading) {
                     Color(red: 234 / 255, green: 184 / 255, blue: 42 / 255)
-                        .frame(width: 338, height: 32)
+                        .frame(width: 338, height: 36)
 
                     Text("HOW IT ALL STARTED")
                         .font(.custom("DINCondensed-Bold", size: 24))
@@ -84,7 +108,7 @@ struct ContentView: View {
             VStack {
                 ZStack(alignment: .leading) {
                     Color(red: 234 / 255, green: 184 / 255, blue: 42 / 255)
-                        .frame(width: 338, height: 32)
+                        .frame(width: 338, height: 36)
 
                     Text("EDUCATION")
                         .font(.custom("DINCondensed-Bold", size: 24))
@@ -109,7 +133,7 @@ struct ContentView: View {
             VStack {
                 ZStack(alignment: .leading) {
                     Color(red: 234 / 255, green: 184 / 255, blue: 42 / 255)
-                        .frame(width: 338, height: 32)
+                        .frame(width: 338, height: 36)
 
                     Text("SKILLS & TECH STACK")
                         .font(.custom("DINCondensed-Bold", size: 24))
@@ -123,7 +147,7 @@ struct ContentView: View {
             VStack {
                 ZStack(alignment: .leading) {
                     Color(red: 234 / 255, green: 184 / 255, blue: 42 / 255)
-                        .frame(width: 338, height: 32)
+                        .frame(width: 338, height: 36)
 
                     Text("LANGUAGES")
                         .font(.custom("DINCondensed-Bold", size: 24))
@@ -134,6 +158,21 @@ struct ContentView: View {
                 }
             }
             .frame(width: 338)
+            Button {
+                print("Pressed the Contact Button!")
+            } label: {
+                Image(systemName: "envelope.front")
+                Text("Contact")
+            }
+            .foregroundStyle(.black)
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(
+                        Color(red: 234 / 255, green: 184 / 255, blue: 42 / 255)
+                    )
+                    .shadow(color: Color.black.opacity(0.3), radius: 6, x: 0, y: 4)
+            )
         }
     }
 }
