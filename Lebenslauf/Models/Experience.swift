@@ -10,7 +10,11 @@ import Foundation
 struct Experience {
     let title: String
     let place: String?
-    let startYear: Int
-    let endYear: Int?
     let skillsGained: String
+    
+    init(title: String, place: String? = nil, skillsGained: String) {
+        self.title = title
+        self.place = place
+        self.skillsGained = skillsGained
+    }
 }
