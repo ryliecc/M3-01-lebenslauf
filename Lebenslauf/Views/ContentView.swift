@@ -88,92 +88,90 @@ struct ContentView: View {
     ]
 
     var body: some View {
-        ScrollView {
-            VStack {
-                ZStack(alignment: .leading) {
-                    Color(red: 234 / 255, green: 184 / 255, blue: 42 / 255)
-                        .frame(width: 338, height: 36)
+        VStack {
+            ZStack(alignment: .leading) {
+                Color(red: 234 / 255, green: 184 / 255, blue: 42 / 255)
+                    .frame(width: 338, height: 36)
 
-                    Text("HOW IT ALL STARTED")
-                        .font(.custom("DINCondensed-Bold", size: 24))
-                        .padding(.leading, 6)
-                }
-                Text(experienceIntro)
-                    .font(.custom("Avenir Next", size: 16))
-                ForEach(experiences, id: \.id) { experience in
-                    ExperienceView(experience: experience)
-                }
+                Text("HOW IT ALL STARTED")
+                    .font(.custom("DINCondensed-Bold", size: 24))
+                    .padding(.leading, 6)
             }
-            .frame(width: 338)
-            VStack {
-                ZStack(alignment: .leading) {
-                    Color(red: 234 / 255, green: 184 / 255, blue: 42 / 255)
-                        .frame(width: 338, height: 36)
-
-                    Text("EDUCATION")
-                        .font(.custom("DINCondensed-Bold", size: 24))
-                        .padding(.leading, 6)
-                }
-                ForEach(educations, id: \.id) { education in
-                    EducationView(education: education)
-                }
-                HStack(alignment: .top) {
-                    Image(systemName: "circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 5)
-                        .padding(.top, 7)
-                    Text(additionalEducationText)
-                        .font(.custom("Avenir Next", size: 16))
-                }
-                .frame(width: 338, alignment: .leading)
-                Spacer()
+            Text(experienceIntro)
+                .font(.custom("Avenir Next", size: 16))
+            ForEach(experiences, id: \.id) { experience in
+                ExperienceView(experience: experience)
             }
-            .frame(width: 338)
-            VStack {
-                ZStack(alignment: .leading) {
-                    Color(red: 234 / 255, green: 184 / 255, blue: 42 / 255)
-                        .frame(width: 338, height: 36)
-
-                    Text("SKILLS & TECH STACK")
-                        .font(.custom("DINCondensed-Bold", size: 24))
-                        .padding(.leading, 6)
-                }
-                ForEach(skills, id: \.id) { skill in
-                    SkillView(skill: skill)
-                }
-            }
-            .frame(width: 338)
-            VStack {
-                ZStack(alignment: .leading) {
-                    Color(red: 234 / 255, green: 184 / 255, blue: 42 / 255)
-                        .frame(width: 338, height: 36)
-
-                    Text("LANGUAGES")
-                        .font(.custom("DINCondensed-Bold", size: 24))
-                        .padding(.leading, 6)
-                }
-                ForEach(languages, id: \.id) { language in
-                    LanguageView(language: language)
-                }
-            }
-            .frame(width: 338)
-            Button {
-                print("Pressed the Contact Button!")
-            } label: {
-                Image(systemName: "envelope.front")
-                Text("Contact")
-            }
-            .foregroundStyle(.black)
-            .padding()
-            .background(
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(
-                        Color(red: 234 / 255, green: 184 / 255, blue: 42 / 255)
-                    )
-                    .shadow(color: Color.black.opacity(0.3), radius: 6, x: 0, y: 4)
-            )
         }
+        .frame(width: 338)
+        VStack {
+            ZStack(alignment: .leading) {
+                Color(red: 234 / 255, green: 184 / 255, blue: 42 / 255)
+                    .frame(width: 338, height: 36)
+
+                Text("EDUCATION")
+                    .font(.custom("DINCondensed-Bold", size: 24))
+                    .padding(.leading, 6)
+            }
+            ForEach(educations, id: \.id) { education in
+                EducationView(education: education)
+            }
+            HStack(alignment: .top) {
+                Image(systemName: "circle.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 5)
+                    .padding(.top, 7)
+                Text(additionalEducationText)
+                    .font(.custom("Avenir Next", size: 16))
+            }
+            .frame(width: 338, alignment: .leading)
+            Spacer()
+        }
+        .frame(width: 338)
+        VStack {
+            ZStack(alignment: .leading) {
+                Color(red: 234 / 255, green: 184 / 255, blue: 42 / 255)
+                    .frame(width: 338, height: 36)
+
+                Text("SKILLS & TECH STACK")
+                    .font(.custom("DINCondensed-Bold", size: 24))
+                    .padding(.leading, 6)
+            }
+            ForEach(skills, id: \.id) { skill in
+                SkillView(skill: skill)
+            }
+        }
+        .frame(width: 338)
+        VStack {
+            ZStack(alignment: .leading) {
+                Color(red: 234 / 255, green: 184 / 255, blue: 42 / 255)
+                    .frame(width: 338, height: 36)
+
+                Text("LANGUAGES")
+                    .font(.custom("DINCondensed-Bold", size: 24))
+                    .padding(.leading, 6)
+            }
+            ForEach(languages, id: \.id) { language in
+                LanguageView(language: language)
+            }
+        }
+        .frame(width: 338)
+        Button {
+            print("Pressed the Contact Button!")
+        } label: {
+            Image(systemName: "envelope.front")
+            Text("Contact")
+        }
+        .foregroundStyle(.black)
+        .padding()
+        .background(
+            RoundedRectangle(cornerRadius: 12)
+                .fill(
+                    Color(red: 234 / 255, green: 184 / 255, blue: 42 / 255)
+                )
+                .shadow(color: Color.black.opacity(0.3), radius: 6, x: 0, y: 4)
+        )
     }
 }
 

@@ -10,11 +10,21 @@ import SwiftUI
 struct CvView: View {
 
     var body: some View {
-        HeaderView()
-        ContentView()
+        ScrollView {
+            ZStack(alignment: .top) {
+                VStack(spacing: 0) {
+                    HeaderView()
+                        .zIndex(1)
+                    ContentView()
+                        .padding(.top, 80)
+                        .zIndex(0)
+                }
+            }
+        }
     }
 }
 
 #Preview {
     CvView()
 }
+
