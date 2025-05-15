@@ -38,9 +38,7 @@ struct HeaderView: View {
 
             GeometryReader { geo in
                 let minY = geo.frame(in: .global).minY
-                let stickyStart: CGFloat = -50  // Hier die Position, wo Sticky beginnen soll
-
-                    // Offset nur anwenden, wenn minY kleiner oder gleich stickyStart ist
+                let stickyStart: CGFloat = -50
                     let stickyOffset = minY > stickyStart ? 0 : stickyStart - minY
 
                 Image(header.imageName)
