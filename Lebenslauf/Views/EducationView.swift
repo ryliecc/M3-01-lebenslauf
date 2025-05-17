@@ -24,16 +24,14 @@ struct EducationView: View {
                                 ? " - \(education.endYear!)"
                                 : "")
                     )
-                    .font(
-                        .custom("AvenirNext-UltraLightItalic", size: 16)
-                    )
+                    .font(Fonts.contentTextLightItalic)
                     Text(education.title)
-                        .font(.custom("AvenirNext-Medium", size: 16))
+                        .font(Fonts.contentTextMedium)
                 }
                 Text(education.school)
-                    .font(.custom("Avenir Next", size: 16))
+                    .font(Fonts.contentTextRegular)
                 Text(education.description)
-                    .font(.custom("Avenir Next", size: 16))
+                    .font(Fonts.contentTextRegular)
             }
         }
         .frame(width: 338, alignment: .leading)

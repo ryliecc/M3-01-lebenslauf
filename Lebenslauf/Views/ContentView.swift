@@ -94,11 +94,11 @@ struct ContentView: View {
                     .frame(width: 338, height: 36)
 
                 Text("HOW IT ALL STARTED")
-                    .font(.custom("DINCondensed-Bold", size: 24))
+                    .font(Fonts.contentTitle)
                     .padding(.leading, 6)
             }
             Text(experienceIntro)
-                .font(.custom("Avenir Next", size: 16))
+                .font(Fonts.contentTextRegular)
             ForEach(experiences, id: \.id) { experience in
                 ExperienceView(experience: experience)
             }
@@ -110,7 +110,7 @@ struct ContentView: View {
                     .frame(width: 338, height: 36)
 
                 Text("EDUCATION")
-                    .font(.custom("DINCondensed-Bold", size: 24))
+                    .font(Fonts.contentTitle)
                     .padding(.leading, 6)
             }
             ForEach(educations, id: \.id) { education in
@@ -123,7 +123,7 @@ struct ContentView: View {
                     .frame(width: 5)
                     .padding(.top, 7)
                 Text(additionalEducationText)
-                    .font(.custom("Avenir Next", size: 16))
+                    .font(Fonts.contentTextRegular)
             }
             .frame(width: 338, alignment: .leading)
             Spacer()
@@ -135,7 +135,7 @@ struct ContentView: View {
                     .frame(width: 338, height: 36)
 
                 Text("SKILLS & TECH STACK")
-                    .font(.custom("DINCondensed-Bold", size: 24))
+                    .font(Fonts.contentTitle)
                     .padding(.leading, 6)
             }
             ForEach(skills, id: \.id) { skill in
@@ -149,7 +149,7 @@ struct ContentView: View {
                     .frame(width: 338, height: 36)
 
                 Text("LANGUAGES")
-                    .font(.custom("DINCondensed-Bold", size: 24))
+                    .font(Fonts.contentTitle)
                     .padding(.leading, 6)
             }
             ForEach(languages, id: \.id) { language in

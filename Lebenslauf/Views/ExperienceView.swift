@@ -15,16 +15,16 @@ struct ExperienceView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 5)
-                .padding(.top, 6)
+                .padding(.top, 8)
             VStack(alignment: .leading) {
                 Text(
                     experience.title
                         + (experience.place != nil
                             ? " in " + experience.place! : "")
                 )
-                .font(.custom("AvenirNextMedium", size: 16))
+                .font(Fonts.contentTextMedium)
                 Text(experience.skillsGained)
-                    .font(.custom("Avenir Next", size: 16))
+                    .font(Fonts.contentTextRegular)
             }
         }
         .frame(width: 338, alignment: .leading)

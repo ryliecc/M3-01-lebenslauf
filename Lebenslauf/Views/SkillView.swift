@@ -18,10 +18,10 @@ struct SkillView: View {
                 .padding(.top, 7)
             VStack(alignment: .leading) {
                 Text(skill.category + ":")
-                    .font(.custom("AvenirNext-Medium", size: 16))
+                    .font(Fonts.contentTextMedium)
                     .underline()
                 Text(skill.allSkills)
-                    .font(.custom("Avenir Next", size: 16))
+                    .font(Fonts.contentTextRegular)
             }
         }
         .frame(width: 338, alignment: .leading)

@@ -16,7 +16,7 @@ struct CvView: View {
                     HeaderView()
                         .zIndex(1)
                     ContentView()
-                        .padding(.top, 80)
+                        .padding(.top, 60)
                         .zIndex(0)
                 }
             }

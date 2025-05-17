@@ -20,13 +20,13 @@ struct LanguageView: View {
             VStack(alignment: .leading) {
                 HStack {
                     Text(language.language)
-                        .font(.custom("AvenirNext-Medium", size: 16))
+                        .font(Fonts.contentTextMedium)
                     Text(" - " + language.level)
-                        .font(.custom("Avenir Next", size: 16))
+                        .font(Fonts.contentTextRegular)
                 }
                 if language.additionalInfo != nil {
                     Text(language.additionalInfo!)
-                        .font(.custom("Avenir Next", size: 16))
+                        .font(Fonts.contentTextRegular)
                 }
             }
         }

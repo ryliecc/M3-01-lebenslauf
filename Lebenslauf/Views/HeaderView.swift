@@ -28,12 +28,13 @@ struct HeaderView: View {
             .frame(height: 286)
             VStack {
                 Text("Hi, my name is \(header.userFirstName).")
-                    .font(.custom("AvenirNext-Medium", size: 22))
-                    .padding(.top, -120)
+                    .font(Fonts.headerSubtitle)
+                    .padding(.top, -110)
                     .offset(x: -50)
                 Text(header.jobTitle.uppercased())
-                    .font(.custom("DINCondensed-Bold", size: 88))
-                    .padding(.top, -90)
+                    .font(Fonts.headerTitle)
+                    .padding(.top, -100)
+                    .offset(x: -20)
             }
 
             GeometryReader { geo in
@@ -45,7 +46,7 @@ struct HeaderView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 264.12, height: 286)
-                    .offset(x: -20, y: 90)
+                    .offset(x: -10, y: 90)
                     .offset(y: stickyOffset)
                     .zIndex(3)
             }
