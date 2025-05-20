@@ -14,9 +14,11 @@ struct HeaderView: View {
         imageName: "Home_Page"
     )
     
-    @State private var visibleJobTitle: String = header.jobTitles[0]
+    @State private var visibleJobTitle: String = ""
+    @State private var currentTextIndex = 0
+    @State private var charIndex = 0
     
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    let typingSpeed = 0.1
 
     var body: some View {
         ZStack {
@@ -39,14 +41,10 @@ struct HeaderView: View {
                     .font(Fonts.headerTitle)
                     .padding(.top, -100)
                     .offset(x: 40)
+                    .frame(height: 0)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .onReceive(timer) { _ in
-                        var currentIndex = HeaderView.header.jobTitles.firstIndex(of: visibleJobTitle)!
-                        switch currentIndex {
-                        case 2: currentIndex = 0
-                        default: currentIndex += 1
-                        }
-                        visibleJobTitle = HeaderView.header.jobTitles[currentIndex]
+                    .onAppear {
+                        startTyping()
                     }
             }
 
@@ -67,6 +65,38 @@ struct HeaderView: View {
 
         }
         Spacer()
+    }
+    
+    func startTyping() {
+        visibleJobTitle = ""
+        charIndex = 0
+        let fullJobTitle = HeaderView.header.jobTitles[currentTextIndex]
+        
+        Timer.scheduledTimer(withTimeInterval: typingSpeed, repeats: true) { timer in
+            if charIndex < fullJobTitle.count {
+                let index = fullJobTitle.index(fullJobTitle.startIndex, offsetBy: charIndex)
+                visibleJobTitle += String(fullJobTitle[index])
+                charIndex += 1
+            } else {
+                timer.invalidate()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    startDeleting(fullJobTitle: fullJobTitle)
+                }
+            }
+        }
+    }
+    
+    func startDeleting(fullJobTitle: String) {
+        Timer.scheduledTimer(withTimeInterval: typingSpeed, repeats: true) { deleteTimer in
+            if !visibleJobTitle.isEmpty {
+                visibleJobTitle.removeLast()
+            } else {
+                deleteTimer.invalidate()
+                // Nächster Text nach kurzer Pause
+                currentTextIndex = (currentTextIndex + 1) % HeaderView.header.jobTitles.count
+                startTyping()
+            }
+        }
     }
 }
 
