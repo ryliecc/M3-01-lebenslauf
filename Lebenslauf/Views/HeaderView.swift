@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct HeaderView: View {
-    let header: Header = Header(
+    static let header: Header = Header(
         userFirstName: "Rylie",
-        jobTitle: "Developer",
+        jobTitles: ["Developer", "Designer", "Illustrator"],
         imageName: "Home_Page"
     )
+    
+    @State private var visibleJobTitle: String = header.jobTitles[0]
+    
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     var body: some View {
         ZStack {
@@ -27,14 +31,23 @@ struct HeaderView: View {
             }
             .frame(height: 286)
             VStack {
-                Text("Hi, my name is \(header.userFirstName).")
+                Text("Hi, my name is \(HeaderView.header.userFirstName).")
                     .font(Fonts.headerSubtitle)
                     .padding(.top, -110)
                     .offset(x: -50)
-                Text(header.jobTitle.uppercased())
+                Text(visibleJobTitle)
                     .font(Fonts.headerTitle)
                     .padding(.top, -100)
-                    .offset(x: -20)
+                    .offset(x: 40)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .onReceive(timer) { _ in
+                        var currentIndex = HeaderView.header.jobTitles.firstIndex(of: visibleJobTitle)!
+                        switch currentIndex {
+                        case 2: currentIndex = 0
+                        default: currentIndex += 1
+                        }
+                        visibleJobTitle = HeaderView.header.jobTitles[currentIndex]
+                    }
             }
 
             GeometryReader { geo in
@@ -42,7 +55,7 @@ struct HeaderView: View {
                 let stickyStart: CGFloat = -50
                     let stickyOffset = minY > stickyStart ? 0 : stickyStart - minY
 
-                Image(header.imageName)
+                Image(HeaderView.header.imageName)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 264.12, height: 286)

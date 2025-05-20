@@ -9,6 +9,6 @@ import Foundation
 
 struct Header {
     let userFirstName: String
-    let jobTitle: String
+    let jobTitles: [String]
     let imageName: String
 }
